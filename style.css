@@ -1,0 +1,324 @@
+/* Basic reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f7f7f7;
+}
+
+/* Header / nav */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.header-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.branding .name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.branding .title {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.branding .affiliation {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0057b8;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  border-bottom-color: #0057b8;
+}
+
+/* Layout */
+
+.page {
+  padding: 1.5rem 0 3rem;
+}
+
+.page-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+/* Sidebar */
+
+.sidebar {
+  position: relative;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem 1.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.profile-name {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+
+.profile-role {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.profile-inst {
+  color: #666;
+}
+
+.profile-location {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.profile-contact {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.profile-contact .label {
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.profile-contact a {
+  color: #0057b8;
+  text-decoration: none;
+}
+
+.profile-contact a:hover {
+  text-decoration: underline;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.profile-links a {
+  color: #0057b8;
+  text-decoration: none;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+
+.content {
+  min-width: 0;
+}
+
+.section {
+  margin-bottom: 2.25rem;
+}
+
+.section h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.25rem;
+}
+
+.section h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.section p {
+  margin: 0 0 0.75rem;
+}
+
+/* Lists and items */
+
+.item-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 0;
+}
+
+.item-list .item {
+  margin-bottom: 0.45rem;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+
+/* Publications */
+
+.pub-list {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0;
+}
+
+.pub-item {
+  margin-bottom: 0.85rem;
+}
+
+.pub-title {
+  font-weight: 500;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.pub-venue {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Experience / service blocks */
+
+.item-block {
+  margin-top: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.item-place {
+  color: #555;
+  margin-left: 0.25rem;
+}
+
+.item-dates {
+  white-space: nowrap;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.item-text {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Two-column small section layout */
+
+.section-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Links */
+
+a {
+  color: #0057b8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 860px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 0.35rem;
+  }
+
+  .page-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .header-inner {
+    padding: 0.6rem 0.9rem;
+  }
+
+  .page-inner {
+    padding: 0 0.9rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-card {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+}
