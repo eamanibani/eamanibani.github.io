@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -8,86 +8,117 @@
 
   <meta name="description"
     content="Academic homepage of Erfan Amani Bani, PhD Student in Management Science and Operations at London Business School.">
-  <meta name="theme-color" content="#0a66c2">
+  <meta name="theme-color" content="#0f1419">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Erfan Amani Bani - Academic Homepage">
+  <meta property="og:title" content="Erfan Amani Bani — Academic Homepage">
   <meta property="og:description"
     content="PhD Student in Management Science and Operations at London Business School. Researching Healthcare Operations, Supply Chain, and Optimization.">
   <meta property="og:image" content="picture.jpg">
-  <meta property="og:url" content="https://erfanamani.com"> <!-- Replace with actual URL if known, or keep generic -->
+  <meta property="og:url" content="https://erfanamani.com">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
 
-  <!-- Fonts -->
+  <!-- Fonts: Fraunces (display serif with optical sizing) + IBM Plex Sans (body) + IBM Plex Mono (accents) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Prevent flash of wrong theme: apply saved theme before paint -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = saved || (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* keep default */ }
+    })();
+  </script>
 </head>
 
 <body>
 
+  <!-- Subtle grain overlay for texture -->
+  <div class="grain" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="header-inner">
-      <div class="branding">
-        <div class="name">Erfan Amani Bani</div>
-        <div class="affiliation-short">London Business School</div>
-      </div>
+      <a href="#top" class="branding" aria-label="Erfan Amani Bani — home">
+        <span class="monogram" aria-hidden="true">E·A</span>
+        <span class="branding-text">
+          <span class="brand-name">Erfan Amani Bani</span>
+          <span class="brand-aff">London Business School</span>
+        </span>
+      </a>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <a href="cv.pdf" class="nav-primary" target="_blank" rel="noopener">CV</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about"><span class="nav-num">01</span> About</a>
+        <a href="#research"><span class="nav-num">02</span> Research</a>
+        <a href="#teaching"><span class="nav-num">03</span> Teaching</a>
+        <a href="#experience"><span class="nav-num">04</span> Experience</a>
+        <a href="#contact"><span class="nav-num">05</span> Contact</a>
+        <a href="cv.pdf" class="nav-primary" target="_blank" rel="noopener">CV ↗</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"><i class="fa-regular fa-sun"></i></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"><i class="fa-regular fa-moon"></i></span>
+        </button>
       </nav>
     </div>
   </header>
 
-  <main class="page">
+  <main class="page" id="top">
     <div class="page-inner">
 
       <aside class="sidebar">
         <div class="profile-card">
 
-          <!-- Elliptical framed photo -->
           <div class="profile-photo-frame">
-            <img src="picture.jpg" alt="Portrait of Erfan Amani Bani" class="profile-photo">
+            <img src="picture.jpg" alt="Portrait of Erfan Amani Bani" class="profile-photo" loading="eager">
           </div>
 
           <h1 class="profile-name">Erfan Amani Bani</h1>
           <p class="profile-role">
-            PhD Student in Management Science and Operations<br>
+            PhD Student,<br>
+            <span class="profile-field">Management Science &amp; Operations</span><br>
             <span class="profile-inst">London Business School</span>
           </p>
 
-          <div class="profile-location">
-            <i class="fas fa-location-dot icon-mr"></i>
-            <div>
-              Sussex Place<br>
-              Regent’s Park, London, UK
+          <div class="profile-meta">
+            <div class="meta-row">
+              <i class="fas fa-location-dot icon-mr" aria-hidden="true"></i>
+              <span>Sussex Place, Regent's Park<br>London, United Kingdom</span>
             </div>
           </div>
 
           <div class="profile-links">
             <a href="mailto:eamanibani@london.edu">
-              <i class="fas fa-envelope icon-mr"></i> eamanibani@london.edu
+              <i class="fas fa-envelope icon-mr" aria-hidden="true"></i>
+              <span>eamanibani@london.edu</span>
             </a>
             <a href="https://scholar.google.com/citations?user=Y1p23FMAAAAJ&hl=en" target="_blank" rel="noopener">
-              <i class="fa-brands fa-google-scholar icon-mr"></i> Google Scholar
+              <i class="fa-brands fa-google-scholar icon-mr" aria-hidden="true"></i>
+              <span>Google Scholar</span>
             </a>
             <a href="https://www.linkedin.com/in/eamanibani/" target="_blank" rel="noopener">
-              <i class="fa-brands fa-linkedin icon-mr"></i> LinkedIn
+              <i class="fa-brands fa-linkedin icon-mr" aria-hidden="true"></i>
+              <span>LinkedIn</span>
             </a>
+            <a href="cv.pdf" target="_blank" rel="noopener">
+              <i class="fas fa-file-lines icon-mr" aria-hidden="true"></i>
+              <span>Curriculum Vitae</span>
+            </a>
+          </div>
+
+          <div class="profile-now">
+            <span class="now-label">Currently</span>
+            <span class="now-text">Reading on robust optimization &amp; healthcare delivery.</span>
           </div>
 
         </div>
@@ -95,171 +126,195 @@
 
       <div class="content">
 
-        <section id="about" class="section">
-          <h2>About me</h2>
+        <section id="about" class="section section--prose">
+          <div class="section-head">
+            <span class="section-num">01</span>
+            <h2>About</h2>
+          </div>
+          <p class="lede">
+            I am a first-year PhD student in Management Science and Operations at
+            <a href="https://www.london.edu" target="_blank" rel="noopener">London Business School</a>,
+            advised by
+            <a href="https://www.london.edu/faculty-and-research/faculty-profiles/j/jean-pauphilet" target="_blank" rel="noopener">Prof. Jean Pauphilet</a>.
+          </p>
           <p>
-            Hi! I am a first-year PhD student in Management Science and Operations at London Business School,
-            under the supervision of <a href="https://www.london.edu/faculty-and-research/faculty-profiles/j/jean-pauphilet" target="_blank" rel="noopener noreferrer">Prof. Jean Pauphilet</a>.
-            I completed my B.Sc. in Industrial Engineering at Sharif University of Technology, followed by an M.Sc.
-            in Industrial Engineering with a specialization in Optimization Methods at the same institution.
-            My previous research has been published in journals such as <em>Computers &amp; Operations Research</em>,
-            and I am currently exploring.
+            I earned my B.Sc. and M.Sc. in Industrial Engineering at
+            <a href="https://www.sharif.edu" target="_blank" rel="noopener">Sharif University of Technology</a>,
+            specializing in Optimization Methods. My research sits at the intersection of operations research and
+            machine learning, with applications in healthcare operations and supply chain design. Prior work has
+            appeared in <em>Computers &amp; Operations Research</em> and <em>Computers &amp; Industrial Engineering</em>.
           </p>
         </section>
 
         <section id="research" class="section">
-          <h2>Research</h2>
+          <div class="section-head">
+            <span class="section-num">02</span>
+            <h2>Research</h2>
+          </div>
 
-          <h3>Research interests</h3>
-          <p>
-            <strong>Theory:</strong> Operations Research, Machine Learning<br>
-            <strong>Applications:</strong> Healthcare Operations, Supply Chain Design
-          </p>
+          <div class="research-interests">
+            <div class="interest-row">
+              <span class="interest-label">Theory</span>
+              <span class="interest-body">Operations Research &middot; Machine Learning</span>
+            </div>
+            <div class="interest-row">
+              <span class="interest-label">Applications</span>
+              <span class="interest-body">Healthcare Operations &middot; Supply Chain Design</span>
+            </div>
+          </div>
 
-          <h3>Selected Publications</h3>
+          <h3 class="subsection-title">Selected Publications</h3>
 
           <ol class="pub-list">
             <li class="pub-item">
-              <div class="pub-title">
-                Towards sustainable scheduling of unrelated parallel batch processors:
-                A multiobjective approach with triple bottom line, classical and data-driven robust optimization
-              </div>
-              <div class="pub-authors">
-                Ali Fallahi, <strong>Erfan Amani Bani</strong>, Mohsen Varmazyar
-              </div>
-              <div class="pub-venue">
-                <em>Computers &amp; Operations Research</em>, 173 (2025), 106863.
-              </div>
-            </li>
-
-            <li class="pub-item">
-              <div class="pub-title">
-                Designing a sustainable reverse supply chain network for COVID-19 vaccine waste under uncertainty
-              </div>
-              <div class="pub-authors">
-                <strong>Erfan Amani Bani</strong>, Ali Fallahi, Mohsen Varmazyar, Mahdi Fathi
-              </div>
-              <div class="pub-venue">
-                <em>Computers &amp; Industrial Engineering</em>, 174 (2022), 108808.
+              <div class="pub-year">2025</div>
+              <div class="pub-body">
+                <div class="pub-title">
+                  Towards sustainable scheduling of unrelated parallel batch processors:
+                  A multiobjective approach with triple bottom line, classical and data-driven robust optimization
+                </div>
+                <div class="pub-authors">
+                  Ali Fallahi, <strong>Erfan Amani Bani</strong>, Mohsen Varmazyar
+                </div>
+                <div class="pub-venue">
+                  <em>Computers &amp; Operations Research</em>, 173, 106863.
+                </div>
               </div>
             </li>
 
             <li class="pub-item">
-              <div class="pub-title">
-                A constrained multi-item EOQ inventory model for reusable items:
-                Reinforcement learning-based differential evolution and particle swarm optimization
+              <div class="pub-year">2022</div>
+              <div class="pub-body">
+                <div class="pub-title">
+                  Designing a sustainable reverse supply chain network for COVID-19 vaccine waste under uncertainty
+                </div>
+                <div class="pub-authors">
+                  <strong>Erfan Amani Bani</strong>, Ali Fallahi, Mohsen Varmazyar, Mahdi Fathi
+                </div>
+                <div class="pub-venue">
+                  <em>Computers &amp; Industrial Engineering</em>, 174, 108808.
+                </div>
               </div>
-              <div class="pub-authors">
-                Ali Fallahi, <strong>Erfan Amani Bani</strong>, Seyed Taghi Akhavan Niaki
-              </div>
-              <div class="pub-venue">
-                <em>Expert Systems with Applications</em>, 207 (2022), 118018.
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-year">2022</div>
+              <div class="pub-body">
+                <div class="pub-title">
+                  A constrained multi-item EOQ inventory model for reusable items:
+                  Reinforcement learning-based differential evolution and particle swarm optimization
+                </div>
+                <div class="pub-authors">
+                  Ali Fallahi, <strong>Erfan Amani Bani</strong>, Seyed Taghi Akhavan Niaki
+                </div>
+                <div class="pub-venue">
+                  <em>Expert Systems with Applications</em>, 207, 118018.
+                </div>
               </div>
             </li>
           </ol>
         </section>
 
-        <section id="education" class="section">
-          <h2>Education</h2>
-          <ul class="item-list">
-            <li class="item">
-              <div class="item-main">
-                <strong>PhD, Management Science and Operations</strong>
-              </div>
-              <div class="item-sub">
-                London Business School, 2025–2030 (Expected)
-              </div>
-            </li>
-            <li class="item">
-              <div class="item-main">
-                <strong>MSc, Industrial Engineering (Optimization Methods)</strong>
-              </div>
-              <div class="item-sub">
-                Sharif University of Technology, 2023–2025
+        <section id="education" class="section section--prose">
+          <div class="section-head">
+            <span class="section-num">03</span>
+            <h2>Education</h2>
+          </div>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-date">2025 — present</div>
+              <div class="timeline-body">
+                <div class="timeline-title">PhD, Management Science &amp; Operations</div>
+                <div class="timeline-place">London Business School</div>
               </div>
             </li>
-            <li class="item">
-              <div class="item-main">
-                <strong>BSc, Industrial Engineering</strong>
+            <li class="timeline-item">
+              <div class="timeline-date">2023 — 2025</div>
+              <div class="timeline-body">
+                <div class="timeline-title">MSc, Industrial Engineering — Optimization Methods</div>
+                <div class="timeline-place">Sharif University of Technology</div>
               </div>
-              <div class="item-sub">
-                Sharif University of Technology, 2019–2023
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-date">2019 — 2023</div>
+              <div class="timeline-body">
+                <div class="timeline-title">BSc, Industrial Engineering</div>
+                <div class="timeline-place">Sharif University of Technology</div>
               </div>
             </li>
           </ul>
         </section>
 
-        <section id="teaching" class="section">
-          <h2>Teaching</h2>
-
-          <div class="item-block">
-            <div class="item-header">
-              <div><strong>Head Teaching Assistant</strong></div>
-              <div class="item-dates">Sharif University of Technology, 2022–2025</div>
-            </div>
-            <ul class="item-list">
-              <li class="item">
-                Engineering Statistics, Engineering Economics, Plant Layout,
-                Project Control, Transportation Planning, Simulation Principles
-              </li>
-            </ul>
+        <section id="teaching" class="section section--prose">
+          <div class="section-head">
+            <span class="section-num">04</span>
+            <h2>Teaching</h2>
           </div>
 
-          <div class="item-block">
-            <div class="item-header">
-              <div><strong>Teaching Assistant</strong></div>
-              <div class="item-dates">Sharif University of Technology, 2022–2025</div>
+          <div class="teaching-block">
+            <div class="teaching-role">
+              <strong>Head Teaching Assistant</strong>
+              <span class="teaching-place">Sharif University of Technology &middot; 2022–2025</span>
             </div>
-            <ul class="item-list">
-              <li class="item">
-                Dynamic Programming, Linear Programming, Probability Theory, Python Programming
-              </li>
-            </ul>
+            <p class="teaching-courses">
+              Engineering Statistics &middot; Engineering Economics &middot; Plant Layout &middot;
+              Project Control &middot; Transportation Planning &middot; Simulation Principles
+            </p>
+          </div>
+
+          <div class="teaching-block">
+            <div class="teaching-role">
+              <strong>Teaching Assistant</strong>
+              <span class="teaching-place">Sharif University of Technology &middot; 2022–2025</span>
+            </div>
+            <p class="teaching-courses">
+              Dynamic Programming &middot; Linear Programming &middot; Probability Theory &middot; Python Programming
+            </p>
           </div>
         </section>
 
-        <section id="experience" class="section">
-          <h2>Experience</h2>
+        <section id="experience" class="section section--prose">
+          <div class="section-head">
+            <span class="section-num">05</span>
+            <h2>Experience &amp; Service</h2>
+          </div>
 
-          <div class="item-block">
-            <div class="item-header">
-              <div>
-                <strong>Senior AI Developer</strong>
-                <span class="item-place">– Snapp!</span>
+          <div class="exp-block">
+            <div class="exp-header">
+              <div class="exp-role">
+                <strong>AI Developer</strong>
+                <span class="exp-place">— Snapp!</span>
               </div>
-              <div class="item-dates">Mar. 2025 – Sep. 2025</div>
+              <div class="exp-dates">Mar 2025 — Sep 2025</div>
             </div>
-            <p class="item-text">
-              Snapp! is the largest ride-hailing and delivery platform in Iran, with more than
-              70 million users and over 2 million active drivers. I developed and deployed
-              optimization and AI-based solutions to improve large-scale operational performance
-              in this high-volume environment.
+            <p class="exp-text">
+              Snapp! is Iran's largest ride-hailing and delivery platform, serving 70M+ users and 2M+ active drivers.
+              I developed and deployed optimization and AI-based solutions to improve operational performance at scale.
             </p>
           </div>
 
-          <div class="item-block">
-            <div class="item-header">
-              <div>
-                <strong>Co-founder and Optimization Engineer</strong>
-                <span class="item-place">– FLYTZI</span>
+          <div class="exp-block">
+            <div class="exp-header">
+              <div class="exp-role">
+                <strong>Co-founder &amp; Optimization Engineer</strong>
+                <span class="exp-place">— FLYTZI</span>
               </div>
-              <div class="item-dates">Feb. 2024 – Feb. 2025</div>
+              <div class="exp-dates">Feb 2024 — Feb 2025</div>
             </div>
-            <p class="item-text">
-              Co-founded FLYTZI, a mid-mile logistics platform that intelligently matches vendors
-              with van and truck drivers. Contributed to the development of an optimization engine
-              that identifies optimal routes and feasible parcel-loading arrangements for vehicles.
+            <p class="exp-text">
+              Co-founded FLYTZI, a mid-mile logistics platform matching vendors with van and truck drivers.
+              Built the optimization engine for route selection and feasible parcel-loading arrangements.
             </p>
           </div>
 
-          <div class="item-block">
-            <div class="item-header">
-              <div>
+          <div class="exp-block">
+            <div class="exp-header">
+              <div class="exp-role">
                 <strong>Journal Reviewer</strong>
               </div>
-              <div class="item-dates">Sep. 2022 – Sep. 2025</div>
+              <div class="exp-dates">2022 — 2025</div>
             </div>
-            <p class="item-text">
+            <p class="exp-text">
               Reviewed manuscripts for
               <em>Transportation Research Part E</em>,
               <em>Information Sciences</em>,
@@ -269,16 +324,22 @@
           </div>
         </section>
 
-        <section id="contact" class="section">
-          <h2>Contact</h2>
+        <section id="contact" class="section section--prose">
+          <div class="section-head">
+            <span class="section-num">06</span>
+            <h2>Contact</h2>
+          </div>
           <p>
-            Email is the best way to reach me:
+            The best way to reach me is by email at
             <a href="mailto:eamanibani@london.edu">eamanibani@london.edu</a>.
+            I am happy to chat about research, collaborations, or industry questions in operations and optimization.
           </p>
         </section>
 
         <footer class="site-footer">
-          © <span id="year"></span> Erfan Amani Bani
+          <span>© <span id="year"></span> Erfan Amani Bani</span>
+          <span class="footer-sep">·</span>
+          <span>Last updated <span id="updated">2026</span></span>
         </footer>
       </div>
     </div>
@@ -286,9 +347,19 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Year
       var yearSpan = document.getElementById("year");
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // Theme toggle
+      var toggle = document.getElementById("theme-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          var current = document.documentElement.getAttribute("data-theme") || "dark";
+          var next = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          try { localStorage.setItem("theme", next); } catch (e) { /* ignore */ }
+        });
       }
     });
   </script>
