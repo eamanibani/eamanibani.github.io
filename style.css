@@ -99,6 +99,22 @@ body {
 
 ::selection { background: var(--selection-bg); color: var(--text-primary); }
 
+/* Skip link — visible on keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.55rem 0.9rem;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border-radius: var(--radius);
+  background-image: none;
+}
+.skip-link:focus { top: 0.6rem; color: var(--bg-base); }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -794,19 +810,27 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 @media (max-width: 760px) {
   .header-inner {
-    padding: 0.8rem 1.1rem;
+    padding: 0.7rem 1rem;
     flex-wrap: wrap;
-    row-gap: 0.6rem;
+    row-gap: 0.5rem;
   }
+  /* Horizontal-scroll nav on mobile — keeps a single clean row */
   .nav-links {
     width: 100%;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 0.15rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.1rem;
     font-size: 0.82rem;
+    padding-bottom: 2px;
   }
-  .nav-links a { padding: 0.35rem 0.55rem; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { padding: 0.4rem 0.55rem; white-space: nowrap; flex-shrink: 0; }
   .nav-num { display: none; }
+  .nav-links .nav-primary { margin-left: 0.25rem; }
+  .theme-toggle { margin-left: 0.25rem; flex-shrink: 0; }
 
   .page { padding: 2rem 0 3rem; }
   .page-inner { padding: 0 1.1rem; }
@@ -830,14 +854,27 @@ strong { color: var(--text-primary); font-weight: 600; }
 }
 
 @media (max-width: 480px) {
-  .header-inner { padding: 0.7rem 0.9rem; }
+  .header-inner { padding: 0.6rem 0.8rem; }
   .brand-name { font-size: 0.98rem; }
   .brand-aff { font-size: 0.7rem; }
-  .nav-links .nav-primary { padding: 0.35rem 0.75rem; }
+  .monogram { width: 30px; height: 30px; font-size: 0.66rem; }
+  .nav-links { font-size: 0.8rem; }
+  .nav-links a { padding: 0.35rem 0.5rem; }
+  .nav-links .nav-primary { padding: 0.35rem 0.65rem; font-size: 0.74rem; }
+  .theme-toggle { width: 32px; height: 32px; }
 
-  .profile-card { padding: 1.4rem 1.2rem 1.25rem; }
-  .profile-name { font-size: 1.35rem; }
+  .page { padding: 1.5rem 0 2.5rem; }
+  .page-inner { padding: 0 1rem; }
+
+  .profile-card { padding: 1.3rem 1.1rem 1.15rem; }
+  .profile-name { font-size: 1.3rem; }
+  .profile-photo-frame { max-width: 200px; }
 
   .section h2 { font-size: 1.4rem; }
+  .section p.lede { font-size: 1rem; }
   .pub-title { font-size: 1rem; }
+  .interest-row { gap: 0.4rem; }
+  .interest-label { min-width: 0; }
+
+  .research-interests { padding: 0.85rem 1rem; }
 }
