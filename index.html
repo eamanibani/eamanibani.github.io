@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
   <meta name="description"
     content="Academic homepage of Erfan Amani Bani, PhD Student in Management Science and Operations at London Business School.">
-  <meta name="theme-color" content="#0b1638">
+  <meta name="theme-color" content="#f4f0e6">
   <link rel="canonical" href="https://erfanamani.com/">
 
   <!-- Open Graph / Social Media -->
@@ -62,18 +62,6 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Prevent flash of wrong theme: apply saved theme before paint -->
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('theme');
-        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        var theme = saved || (prefersLight ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) { /* keep default */ }
-    })();
-  </script>
 </head>
 
 <body>
@@ -101,10 +89,6 @@
         <a href="#experience"><span class="nav-num">05</span> Experience</a>
         <a href="#contact"><span class="nav-num">06</span> Contact</a>
         <a href="cv.pdf" class="nav-primary" target="_blank" rel="noopener" aria-label="Curriculum Vitae (PDF, opens in new tab)">CV ↗</a>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
-          <span class="theme-icon theme-icon-sun" aria-hidden="true"><i class="fa-regular fa-sun"></i></span>
-          <span class="theme-icon theme-icon-moon" aria-hidden="true"><i class="fa-regular fa-moon"></i></span>
-        </button>
       </nav>
     </div>
   </header>
@@ -380,20 +364,8 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Year
       var yearSpan = document.getElementById("year");
       if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-      // Theme toggle
-      var toggle = document.getElementById("theme-toggle");
-      if (toggle) {
-        toggle.addEventListener("click", function () {
-          var current = document.documentElement.getAttribute("data-theme") || "dark";
-          var next = current === "dark" ? "light" : "dark";
-          document.documentElement.setAttribute("data-theme", next);
-          try { localStorage.setItem("theme", next); } catch (e) { /* ignore */ }
-        });
-      }
     });
   </script>
 </body>

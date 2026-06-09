@@ -1,53 +1,11 @@
 /* =========================================================
    Erfan Amani Bani — Academic Homepage
-   Modern academic, dark-default with cream + amber accent
+   Modern academic, light theme — LBS navy on cream with red accent
    ========================================================= */
 
-/* ---------- Tokens: dark (default) ---------- */
-:root,
-[data-theme="dark"] {
-  /* Backgrounds — deep LBS navy, layered */
-  --bg-base:        #0b1638;
-  --bg-elevated:    #122149;
-  --bg-soft:        #18295a;
-  --bg-hover:       #1f3168;
-
-  /* Text — warm cream against navy */
-  --text-primary:   #f1ebda;
-  --text-body:      #d4ccb8;
-  --text-muted:     #8b93ab;
-  --text-faint:     #5d6680;
-
-  /* Accent — LBS red, warmed slightly for readability on dark navy */
-  --accent:         #e63950;
-  --accent-bright:  #f55a6e;
-  --accent-soft:    rgba(230, 57, 80, 0.12);
-  --accent-line:    rgba(230, 57, 80, 0.30);
-
-  /* Borders / rules */
-  --rule:           rgba(241, 235, 218, 0.10);
-  --rule-strong:    rgba(241, 235, 218, 0.18);
-
-  /* Selection */
-  --selection-bg:   rgba(230, 57, 80, 0.30);
-
-  /* Shadows */
-  --shadow-soft:    0 1px 0 rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
-  --shadow-lift:    0 12px 40px -16px rgba(0,0,0,0.7);
-
-  /* Type */
-  --font-display:   'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --font-body:      'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --font-mono:      'IBM Plex Mono', 'SF Mono', Menlo, monospace;
-
-  /* Layout */
-  --radius:         4px;
-  --radius-lg:      8px;
-  --maxw:           1100px;
-}
-
-/* ---------- Tokens: light ---------- */
-[data-theme="light"] {
+/* ---------- Tokens ---------- */
+:root {
+  /* Backgrounds — warm cream, layered */
   --bg-base:        #f4f0e6;
   --bg-elevated:    #faf6ec;
   --bg-soft:        #ebe5d2;
@@ -65,13 +23,26 @@
   --accent-soft:    rgba(200, 16, 46, 0.09);
   --accent-line:    rgba(200, 16, 46, 0.25);
 
+  /* Borders / rules */
   --rule:           rgba(21, 41, 110, 0.12);
   --rule-strong:    rgba(21, 41, 110, 0.20);
 
+  /* Selection */
   --selection-bg:   rgba(200, 16, 46, 0.25);
 
+  /* Shadows */
   --shadow-soft:    0 1px 0 rgba(21,41,110,0.04), 0 6px 20px -12px rgba(21,41,110,0.18);
   --shadow-lift:    0 10px 30px -14px rgba(21,41,110,0.22);
+
+  /* Type */
+  --font-display:   'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body:      'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:      'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+
+  /* Layout */
+  --radius:         4px;
+  --radius-lg:      8px;
+  --maxw:           1100px;
 }
 
 /* ---------- Reset / base ---------- */
@@ -95,7 +66,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "ss01", "ss02", "kern";
-  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
@@ -156,12 +126,10 @@ strong { color: var(--text-primary); font-weight: 600; }
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.35;
-  mix-blend-mode: overlay;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
 }
-
-[data-theme="light"] .grain { opacity: 0.18; mix-blend-mode: multiply; }
 
 /* ---------- Header / nav ---------- */
 .site-header {
@@ -278,31 +246,6 @@ strong { color: var(--text-primary); font-weight: 600; }
   color: var(--bg-base);
   border-color: var(--accent);
 }
-
-/* Theme toggle */
-.theme-toggle {
-  margin-left: 0.4rem;
-  width: 36px;
-  height: 36px;
-  display: inline-grid;
-  place-items: center;
-  background: var(--bg-soft);
-  border: 1px solid var(--rule);
-  border-radius: 50%;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: color 0.18s, background-color 0.18s, transform 0.4s cubic-bezier(.2,.8,.2,1);
-  position: relative;
-  overflow: hidden;
-}
-.theme-toggle:hover { color: var(--accent); background: var(--bg-hover); transform: rotate(20deg); }
-.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.theme-icon { position: absolute; transition: opacity 0.25s, transform 0.4s; font-size: 0.85rem; }
-[data-theme="dark"]  .theme-icon-sun  { opacity: 1; transform: translateY(0); }
-[data-theme="dark"]  .theme-icon-moon { opacity: 0; transform: translateY(120%); }
-[data-theme="light"] .theme-icon-sun  { opacity: 0; transform: translateY(-120%); }
-[data-theme="light"] .theme-icon-moon { opacity: 1; transform: translateY(0); }
 
 /* ---------- Page layout ---------- */
 .page { padding: 3rem 0 4rem; position: relative; z-index: 2; }
@@ -873,7 +816,6 @@ strong { color: var(--text-primary); font-weight: 600; }
   .nav-links a { padding: 0.4rem 0.55rem; white-space: nowrap; flex-shrink: 0; }
   .nav-num { display: none; }
   .nav-links .nav-primary { margin-left: 0.25rem; }
-  .theme-toggle { margin-left: 0.25rem; flex-shrink: 0; }
 
   .page { padding: 2rem 0 3rem; }
   .page-inner { padding: 0 1.1rem; }
@@ -904,7 +846,6 @@ strong { color: var(--text-primary); font-weight: 600; }
   .nav-links { font-size: 0.8rem; }
   .nav-links a { padding: 0.35rem 0.5rem; }
   .nav-links .nav-primary { padding: 0.35rem 0.65rem; font-size: 0.74rem; }
-  .theme-toggle { width: 32px; height: 32px; }
 
   .page { padding: 1.5rem 0 2.5rem; }
   .page-inner { padding: 0 1rem; }
