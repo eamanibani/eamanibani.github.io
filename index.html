@@ -3,20 +3,53 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Erfan Amani Bani</title>
+  <title>Erfan Amani Bani — PhD Student, London Business School</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="description"
     content="Academic homepage of Erfan Amani Bani, PhD Student in Management Science and Operations at London Business School.">
   <meta name="theme-color" content="#0f1419">
+  <link rel="canonical" href="https://erfanamani.com/">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Erfan Amani Bani — Academic Homepage">
   <meta property="og:description"
     content="PhD Student in Management Science and Operations at London Business School. Researching Healthcare Operations, Supply Chain, and Optimization.">
-  <meta property="og:image" content="picture.jpg">
-  <meta property="og:url" content="https://erfanamani.com">
+  <meta property="og:image" content="https://erfanamani.com/picture.jpg">
+  <meta property="og:url" content="https://erfanamani.com/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Erfan Amani Bani — Academic Homepage">
+  <meta name="twitter:description"
+    content="PhD Student in Management Science and Operations at London Business School.">
+  <meta name="twitter:image" content="https://erfanamani.com/picture.jpg">
+
+  <!-- Structured data (Person) for academic search -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Erfan Amani Bani",
+      "url": "https://erfanamani.com/",
+      "image": "https://erfanamani.com/picture.jpg",
+      "jobTitle": "PhD Student in Management Science and Operations",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "London Business School",
+        "url": "https://www.london.edu"
+      },
+      "email": "mailto:eamanibani@london.edu",
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Sharif University of Technology" }
+      ],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=Y1p23FMAAAAJ&hl=en",
+        "https://www.linkedin.com/in/eamanibani/"
+      ]
+    }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
@@ -45,6 +78,8 @@
 
 <body>
 
+  <a href="#about" class="skip-link">Skip to content</a>
+
   <!-- Subtle grain overlay for texture -->
   <div class="grain" aria-hidden="true"></div>
 
@@ -61,10 +96,11 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#about"><span class="nav-num">01</span> About</a>
         <a href="#research"><span class="nav-num">02</span> Research</a>
-        <a href="#teaching"><span class="nav-num">03</span> Teaching</a>
-        <a href="#experience"><span class="nav-num">04</span> Experience</a>
-        <a href="#contact"><span class="nav-num">05</span> Contact</a>
-        <a href="cv.pdf" class="nav-primary" target="_blank" rel="noopener">CV ↗</a>
+        <a href="#education"><span class="nav-num">03</span> Education</a>
+        <a href="#teaching"><span class="nav-num">04</span> Teaching</a>
+        <a href="#experience"><span class="nav-num">05</span> Experience</a>
+        <a href="#contact"><span class="nav-num">06</span> Contact</a>
+        <a href="cv.pdf" class="nav-primary" target="_blank" rel="noopener" aria-label="Curriculum Vitae (PDF, opens in new tab)">CV ↗</a>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
           <span class="theme-icon theme-icon-sun" aria-hidden="true"><i class="fa-regular fa-sun"></i></span>
           <span class="theme-icon theme-icon-moon" aria-hidden="true"><i class="fa-regular fa-moon"></i></span>
@@ -118,7 +154,7 @@
 
           <div class="profile-now">
             <span class="now-label">Currently</span>
-            <span class="now-text">Reading on neural networks compression.</span>
+            <span class="now-text">Reading on neural network compression.</span>
           </div>
 
         </div>
@@ -337,8 +373,6 @@
 
         <footer class="site-footer">
           <span>© <span id="year"></span> Erfan Amani Bani</span>
-          <span class="footer-sep">·</span>
-          <span>Last updated <span id="updated">2026</span></span>
         </footer>
       </div>
     </div>
