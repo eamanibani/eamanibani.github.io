@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://erfanamani.com/sitemap.xml
+Sitemap: https://eamanibani.github.io/sitemap.xml
